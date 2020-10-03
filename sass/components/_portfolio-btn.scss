@@ -1,0 +1,63 @@
+.portfolio {
+    @extend %section;
+}
+
+.container {
+    @extend %container;
+}
+
+//  Кнопки
+
+.button__list {
+    @extend %list;
+}
+
+.portfolio__button {
+    @include flexbox();
+    flex-wrap: wrap;
+    margin: 0 0 40px 0;
+
+    @include for-size(tablet) {
+        @include flexbox($justify:center);
+        margin: 0 0 50px;
+        flex-wrap: no-wrap;
+    }
+}
+
+.button__item+.button__item {
+    @include for-size(tablet) {
+        margin-left: 8px;
+    }
+}
+
+.button__item {
+    @include for-size(to-tablet) {
+        margin: 0 8px 10px 0;
+    }
+}
+
+.button {
+    padding: 6px 22px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+
+    background-color: $alternate-bg-color;
+    color: $title-color;
+
+    @include font($medium, $secondery-text-size, 1.62);
+
+    transition: box-shadow $cubic,
+        background-color $cubic,
+        color $cubic;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+            0px 2px 2px rgba(0, 0, 0, 0.12);
+        background-color: $accent-color;
+        color: $primery-color;
+        cursor: pointer;
+    }
+}
+
+// Проекты

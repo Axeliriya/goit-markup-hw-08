@@ -1,0 +1,6 @@
+body {
+    background-color: $primery-color;
+    color: $primery-text-color;
+
+    @include font($normal, $primery-text-size, 1.7);
+}

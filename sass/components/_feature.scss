@@ -1,0 +1,88 @@
+.feature {
+    padding: 60px 0;
+
+    @include for-size(desktop) {
+        padding-top: 94px;
+    }
+}
+
+.feature__title {
+    @extend %visually-hidden;
+}
+
+.feature__list {
+    @extend %list;
+    @extend %container;
+
+    @include for-size(tablet) {
+        @include flexbox();
+        flex-wrap: wrap;
+    }
+
+    @include for-size(desktop) {
+        @include flexbox();
+        flex-wrap: nowrap;
+    }
+}
+
+.feature__item {
+    @include for-size(to-tablet) {
+        width: 100%;
+    }
+
+    &:not(:last-child) {
+        @include for-size(to-tablet) {
+            margin-bottom: 30px;
+        }
+
+        @include for-size(desktop) {
+            margin-right: 30px;
+        }
+    }
+
+    &:not(:nth-last-child(-n + 2)) {
+        @include for-size(tablet and to-desktop) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &:nth-child(2n) {
+        @include for-size(tablet and to-desktop) {
+            margin-right: 0;
+        }
+    }
+
+    @include for-size(tablet) {
+        width: calc((100% - 30px) / 2);
+        margin-right: 30px;
+    }
+
+    @include for-size(desktop) {
+        width: calc((100% - 90px) / 4);
+    }
+}
+
+.feature__icon {
+    @include flexbox(center, center);
+    height: 120px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    background-color: $alternate-bg-color;
+}
+
+.feature__subtitle {
+    margin: 0 0 10px;
+
+    color: $title-color;
+    @include font($bold, $primery-text-size, 1.14);
+    text-transform: uppercase;
+    text-align: center;
+
+    @include for-size(tablet) {
+        text-align: left;
+    }
+}
+
+.feature__text {
+    margin: 0;
+}

@@ -1,0 +1,43 @@
+// Бургер 
+
+.menu-button {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    background-color: $primery-color;
+    color: #000000;
+
+    transition: color $cubic;
+
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: $accent-color;
+    }
+
+    @include for-size(tablet) {
+        display: none;
+    }
+}
+
+.icon-cross {
+    display: none;
+
+    @extend %fill;
+
+    .is-open & {
+        display: block;
+    }
+}
+
+.icon-menu {
+    @extend %fill;
+
+    .is-open & {
+        display: none;
+    }
+}

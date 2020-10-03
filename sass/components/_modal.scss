@@ -1,0 +1,237 @@
+// Бэкдроп
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+
+    transition: opacity $cubic;
+}
+
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+// Модальное окно
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 609px;
+    padding: 40px;
+    z-index: 4;
+
+    @include font (400, 12px, 1.16, 0.01em);
+
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+        0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    background-color: $primery-color;
+
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform $cubic,
+        opacity $cubic;
+
+    @include for-size(desktop) {
+        width: 528px;
+        height: 581px;
+    }
+}
+
+.modal__button-exit {
+    position: absolute;
+    @include flexbox(center, center);
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+
+    background-color: $primery-color;
+    color: #000000;
+
+    transition: color $cubic;
+
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: $accent-color;
+    }
+}
+
+.modal__exit {
+    @extend %fill;
+}
+
+.modal__title {
+    margin: 0 0 12px;
+    padding: 0;
+
+    @include font ($bold, 20px, 1.5);
+    text-align: center;
+
+    color: $title-color;
+
+    @include for-size(desktop) {
+        @include font ($bold, 20px, 1.15);
+    }
+}
+
+.modal__form {
+    @include flexbox();
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal__content {
+    @include flexbox();
+    flex-direction: column;
+    width: 100%;
+}
+
+.form {
+    @extend %box;
+}
+
+.form__lable {
+    @extend %lable;
+}
+
+.form__input {
+    @extend %input;
+
+    &:focus {
+        border: 1px solid $accent-color;
+        outline: inherit;
+    }
+
+    &:focus+.form__icon {
+        color: $accent-color;
+    }
+}
+
+.form__icon {
+    @extend %fill;
+
+    position: absolute;
+    display: inline-block;
+    bottom: 20px;
+    left: 12px;
+
+    color: $title-color;
+
+    transition: color $cubic;
+}
+
+.form-textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px 16px;
+    margin: 0 0 20px;
+
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    resize: none;
+
+    transition: border $cubic,
+        outline $cubic;
+
+    &:focus {
+        border: 1px solid $accent-color;
+        border-radius: 4px;
+        outline: inherit;
+    }
+
+    &::placeholder {
+        color: rgba(117, 117, 117, 0.5);
+
+        @include font ($normal, $primery-text-size, 1.16, 0.01em);
+    }
+}
+
+.checkbox {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+.checkbox__input {
+    @extend %visually-hidden;
+}
+
+.checkbox__lable {
+    padding-left: 10px;
+    @include font ($normal, 12px, 1.16);
+
+    @include for-size(desktop) {
+        @include font ($normal, $primery-text-size, 1.71);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+
+        width: 13px;
+        height: 13px;
+        border: 2px solid $title-color;
+        border-radius: 4px;
+
+        background-color: $primery-color;
+
+        transition: border $cubic,
+            background-color $cubic;
+
+        @include for-size(desktop) {
+            left: 10px;
+        }
+    }
+}
+
+.checkbox__input:checked+.checkbox__lable::before {
+    border: 2px solid $accent-color;
+    border-radius: 4px;
+    background-color: $accent-color;
+    background-image: url(../images/check.svg);
+    background-size: contain;
+    background-origin: border-box;
+}
+
+.checkbox__policy-link {
+    color: $accent-color;
+}
+
+.modal__button-submit {
+    @extend %btn;
+    @include font($bold, $secondery-text-size, 1.9, 0.06em);
+    transition: box-shadow $cubic;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}

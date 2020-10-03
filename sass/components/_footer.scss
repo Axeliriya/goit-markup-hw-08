@@ -1,0 +1,169 @@
+.page-footer {
+    padding: 60px 0;
+    background-color: $secondery-color;
+}
+
+.container {
+    @extend %container;
+}
+
+.page-footer__content {
+    text-align: center;
+
+    @include for-size(tablet) {
+        @include flexbox(stretch, space-around);
+        flex-wrap: wrap;
+    }
+
+    @include for-size(desktop) {
+        @include flexbox(baseline, space-between);
+    }
+}
+
+// Блок адреса
+
+.address {
+    margin-bottom: 60px;
+
+    @include for-size(desktop) {
+        margin-bottom: 0px;
+    }
+}
+
+.address__content {
+    @include flexbox();
+    flex-direction: column;
+    font-style: normal;
+}
+
+.address__text {
+    margin: 0 0 9px;
+
+    color: $primery-color;
+
+    @include font(400, 14px, 1.71);
+}
+
+.address__link {
+    @extend %link;
+    display: inline-block;
+
+    color: $prompt-color;
+    @include font($normal, $primery-text-size, 1.71);
+
+    transition: color $cubic;
+
+    &:not(:last-child) {
+        margin: 0 0 9px;
+    }
+
+    &:hover,
+    &:focus {
+        color: $accent-color;
+    }
+}
+
+// Блок присоединиться
+
+.join {
+    margin-bottom: 60px;
+
+    @include for-size(tablet) {
+        margin-bottom: 0px;
+    }
+}
+
+.join__title {
+    @include font($bold, $primery-text-size, 1.14);
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    color: $primery-color;
+}
+
+.socials__link--inverse {
+    @include flexbox(center, center);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $primery-color;
+
+    transition: color $cubic, background-color $cubic;
+
+    &:hover,
+    &:focus {
+        background-color: $accent-color;
+        color: $primery-color;
+    }
+}
+
+// .subscribe {
+//     @media screen and (max-width: 767px) {
+//         margin-bottom: 60px;
+//     }
+// }
+
+.subscribe__title {
+    @include font($bold, $primery-text-size, 1.14);
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    color: $primery-color;
+
+    @include for-size(desktop) {
+        text-align: left;
+    }
+}
+
+.subscribe__form {
+    @include flexbox(center, center);
+    flex-direction: column;
+
+    @include for-size(desktop) {
+        @include flexbox(start);
+        flex-direction: row;
+    }
+}
+
+.subscribe__input {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 50px;
+    padding: 15px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+
+    background-color: transparent;
+    color: $primery-color;
+
+    &::placeholder {
+        @include font($normal, $secondery-text-size, 1.25);
+
+        color: $prompt-color;
+    }
+
+    &:focus {
+        color: $primery-color;
+    }
+
+    @include for-size(tablet) {
+        @include flexbox(center);
+        width: 360px;
+    }
+
+    @include for-size(desktop) {
+        margin-right: 10px;
+    }
+}
+
+.subscribe__button {
+    @extend %btn;
+    @include flexbox(center);
+    @include font($bold, $secondery-text-size, 1.9, 0.06em);
+    color: $primery-color;
+}
+
+.subscribe__icon {
+    margin-left: 10px;
+    @extend %fill;
+}

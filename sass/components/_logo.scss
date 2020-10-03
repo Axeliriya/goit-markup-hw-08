@@ -1,0 +1,38 @@
+.logo {
+    color: $accent-color;
+
+    @include font($bold, 24px, 1.16, 0.03em, $logo-font);
+    margin: 16px 0;
+    @extend %link;
+
+    @include for-size(tablet) {
+        @include font($bold, 24px, 1.2, 0.03em, $logo-font);
+    }
+
+    @include for-size(desktop) {
+        @include font($bold, 26px, 1.2, 0.03em, $logo-font);
+    }
+}
+
+.page-header__logo {
+    @include for-size(tablet) {
+        margin: 0 88px 0 0;
+    }
+
+    @include for-size(desktop) {
+        margin-right: 93px;
+    }
+}
+
+.logo--part-black {
+    color: #000000;
+}
+
+.page-footer__logo {
+    display: inline-block;
+    margin: 0 0 20px;
+}
+
+.logo--part-white {
+    color: $primery-color;
+}

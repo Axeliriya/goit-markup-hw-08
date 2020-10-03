@@ -1,0 +1,121 @@
+//  Проекты
+.portfolio__title {
+    @extend %visually-hidden;
+}
+
+.portfilio__project {
+
+    @include for-size(tablet) {
+        @include flexbox();
+        flex-wrap: wrap;
+    }
+}
+
+.project__list {
+    @extend %list;
+}
+
+.project__item {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    overflow: hidden;
+    transition: box-shadow $cubic,
+        border-radius $cubic;
+
+    &:not(:last-child) {
+        @include for-size(to-tablet) {
+            margin-bottom: 30px;
+        }
+
+        @include for-size(tablet and to-desktop) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &:not(:nth-last-child(-n + 3)) {
+        @include for-size(desktop) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &:nth-child(3n) {
+        @include for-size(desktop) {
+            margin-right: 0;
+        }
+    }
+
+    &:nth-child(2n) {
+        @include for-size(tablet and to-desktop) {
+            margin-right: 0;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+            1px 4px 6px rgba(0, 0, 0, 0.16);
+        border-radius: 5px;
+    }
+
+    @include for-size(tablet) {
+        width: calc((100% - 30px) / 2);
+        margin-right: 30px;
+    }
+
+    @include for-size(desktop) {
+        width: calc((100% - 60px) / 3);
+        margin-right: 30px;
+    }
+}
+
+.project__link {
+    @extend %link;
+}
+
+.project__content {
+    position: relative;
+    overflow: hidden;
+}
+
+.project__specification {
+    position: absolute;
+    @include flexbox(center, center);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform $cubic;
+    margin: 0;
+    padding: 0 24px;
+    @include font($normal, 18px, 1.55);
+    background-color: rgba(33, 150, 243, 0.9);
+    color: $primery-color;
+
+    .project__link:hover & {
+        transform: translateY(0);
+    }
+}
+
+.project__box {
+    padding: 20px 24px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom: 1px solid var(--border-card);
+    border-right: 1px solid var(--border-card);
+    border-left: 1px solid var(--border-card);
+}
+
+.project__subtitle {
+    margin: 0 0 4px;
+    color: $title-color;
+
+    @include font($bold, 18px, 2, 0.06em);
+}
+
+.project__text {
+    margin: 0;
+    color: $primery-text-color;
+    @include font($normal, $secondery-text-size, 1.87);
+}

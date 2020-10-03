@@ -1,0 +1,33 @@
+// Социальные сети
+
+.socials {
+    @include flexbox(stretch, center);
+    @extend %list;
+}
+
+.socials__item:not(:last-child) {
+    margin-right: 10px;
+}
+
+.socials__link {
+    @include flexbox(center, center);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+
+    color: $icon-color;
+
+    transition: color $cubic,
+        background-color $cubic,
+        border-radius $cubic;
+
+    &:hover,
+    &:focus {
+        background-color: $accent-color;
+        color: $primery-color;
+    }
+}
+
+.socials__icon {
+    @extend %fill;
+}
