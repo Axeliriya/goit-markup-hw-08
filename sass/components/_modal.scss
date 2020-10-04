@@ -13,6 +13,12 @@
     opacity: 1;
 
     transition: opacity $cubic;
+
+    overflow-y: scroll;
+
+    @include for-size(mobile-only) {
+        padding: 20px 15px;
+    }
 }
 
 .is-hidden {
@@ -23,27 +29,32 @@
 // Модальное окно
 
 .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 450px;
-    height: 609px;
     padding: 40px;
     z-index: 4;
+    transform: scale(1);
+
+    @include for-size(mobile) {
+        width: 450px;
+        height: 609px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
 
     @include font (400, 12px, 1.16, 0.01em);
 
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-        0px 1px 1px rgba(0, 0, 0, 0.14),
-        0px 2px 1px rgba(0, 0, 0, 0.2);
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
     background-color: $primery-color;
 
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
     transition: transform $cubic,
-        opacity $cubic;
+    opacity $cubic;
 
     @include for-size(desktop) {
         width: 528px;
