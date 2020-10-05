@@ -1,7 +1,6 @@
 body {
     background-color: $primery-color;
     color: $primery-text-color;
-    outline: 1px solid red;
 
     @include font($normal, $primery-text-size, 1.7);
 }

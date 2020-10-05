@@ -28,6 +28,7 @@
 .feature__item {
     @include for-size(to-tablet) {
         width: 100%;
+        margin-right: 0;
     }
 
     &:not(:last-child) {
@@ -54,6 +55,9 @@
 
     @include for-size(tablet) {
         width: calc((100% - 30px) / 2);
+    }
+
+    @include for-size(tablet and to-desktop) {
         margin-right: 30px;
     }
 
