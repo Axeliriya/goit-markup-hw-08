@@ -764,12 +764,18 @@ body {
     width: calc((100% - 30px) / 2);
     margin-right: 30px;
   }
+  .project__item:first-child {
+    height: 397px;
+  }
 }
 
 @media (min-width: 1200px) {
   .project__item {
     width: calc((100% - 60px) / 3);
     margin-right: 30px;
+  }
+  .project__item:first-child {
+    height: 100%;
   }
 }
 
@@ -815,6 +821,16 @@ body {
           transform: translateY(0);
 }
 
+@media (max-width: 479px) {
+  .project__specification {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.55;
+    letter-spacing: 0.03em;
+  }
+}
+
 .project__box {
   padding: 20px 24px;
   border-bottom-right-radius: 5px;
@@ -840,7 +856,7 @@ body {
     font-weight: 700;
     font-size: 18px;
     line-height: 2;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.06em;
   }
 }
 
@@ -850,7 +866,7 @@ body {
     font-weight: 700;
     font-size: 18px;
     line-height: 2;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em;
   }
 }
 
