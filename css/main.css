@@ -195,13 +195,13 @@ button:focus {
 
 @media (min-width: 768px) {
   .container, .feature__list {
-    width: 751px;
+    width: 750px;
   }
 }
 
 @media (min-width: 1200px) {
   .container, .feature__list {
-    width: 1183px;
+    width: 1182px;
   }
 }
 

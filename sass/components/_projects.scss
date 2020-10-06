@@ -102,9 +102,9 @@
     padding: 20px 24px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    border-bottom: 1px solid var(--border-card);
-    border-right: 1px solid var(--border-card);
-    border-left: 1px solid var(--border-card);
+    border-bottom: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
+    border-left: 1px solid #eeeeee;
 }
 
 .project__subtitle {
@@ -112,6 +112,14 @@
     color: $title-color;
 
     @include font($bold, 18px, 2, 0.06em);
+
+    @include for-size(tablet) {
+        @include font($bold, 18px, 2, 0.01em);
+    }
+
+    @include for-size(desktop) {
+        @include font($bold, 18px, 2, 0.03em);
+    }
 }
 
 .project__text {
